@@ -1,12 +1,19 @@
 package config
 
 import (
+	"flag"
+	"fmt"
 	"os"
 	"strconv"
+	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Config struct {
-	DB DBConfig
+	Environment    string
+	TrustedProxies []string
+	DB             DBConfig
 }
 
 type DBConfig struct {
@@ -18,22 +25,37 @@ type DBConfig struct {
 	SSLMode  string
 }
 
+func findEnvironment() string {
+	if flag.Lookup("test.v") == nil {
+		env := os.Getenv("GO_ENV")
+		if env == "production" || env == "prod" {
+			return gin.ReleaseMode
+		}
+		return gin.DebugMode
+	}
+	return gin.TestMode
+}
+
 func LoadConfig() *Config {
 
+	trustedProxies := getEnv("TRUSTED_PROXIES", "localhost,127.0.0.1")
 	config := Config{
+		Environment:    findEnvironment(),
+		TrustedProxies: strings.Split(trustedProxies, ","),
 		DB: DBConfig{
-			Host:     genEnv("DB_HOST", "localhost"),
-			User:     genEnv("DB_USER", "postgres"),
-			Password: genEnv("DB_PASS", "postgres"),
-			Name:     genEnv("DB_NAME", "balkanid-task"),
+			Host:     getEnv("DB_HOST", "localhost"),
+			User:     getEnv("DB_USER", "postgres"),
+			Password: getEnv("DB_PASS", "postgres"),
+			Name:     getEnv("DB_NAME", "balkanid-task"),
 			Port:     getEnvAsUint("DB_PORT", 3000),
-			SSLMode:  genEnv("DB_SSLMODE", "disable"),
+			SSLMode:  getEnv("DB_SSLMODE", "disable"),
 		},
 	}
+	fmt.Println("✅ Config Loaded")
 	return &config
 }
 
-func genEnv(key string, defaultValue string) string {
+func getEnv(key string, defaultValue string) string {
 	value := os.Getenv(key)
 	if value == "" {
 		return defaultValue

@@ -13,8 +13,8 @@ type Error struct {
 }
 
 type errorResponse struct {
-	Success bool `json:"success"`
-	Error
+	Success bool  `json:"success"`
+	Error   Error `json:"error"`
 }
 
 func SuccessResponse(data interface{}) successResponse {
@@ -54,6 +54,6 @@ func ConflictResponse(message string) errorResponse {
 	return ErrorResponse(http.StatusConflict, message)
 }
 
-func InternalServerErrorResponse(message string) errorResponse {
-	return ErrorResponse(http.StatusInternalServerError, message)
+func InternalServerErrorResponse() errorResponse {
+	return ErrorResponse(http.StatusInternalServerError, "Internal Server Error")
 }

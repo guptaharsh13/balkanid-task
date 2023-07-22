@@ -2,7 +2,6 @@ package initializers
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/guptaharsh13/balkanid-task/config"
 	"gorm.io/driver/postgres"
@@ -18,7 +17,7 @@ func ConnectToDb(config config.DBConfig) {
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
-		panic("Could not connect to the database")
+		panic("Couldn't connect to the database")
 	}
-	log.Println("Successfgully connected to the database")
+	fmt.Println("✅ Database Connected!")
 }
