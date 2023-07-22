@@ -77,6 +77,12 @@ Now, may access the app on http://localhost:PORT
 
 PORT: You may have optionally specified in the .env file
 
+## API documentation
+
+<a href="https://documenter.getpostman.com/view/11144664/2s946mZ9eL" target="_blank">
+    <img alt="View API Doc Button" src="https://github.com/amitshekhariitbhu/go-backend-clean-architecture/blob/main/assets/button-view-api-docs.png?raw=true" width="200" height="60"/>
+</a>
+
 ## Contact
 
 Harsh Gupta - hg242322@gmail.com
