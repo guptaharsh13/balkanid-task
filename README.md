@@ -5,6 +5,8 @@
 
 Backend Assignment | BalkanID
 
+![ERD](erd.png)
+
 ## About the Backend
 
 A robust containerized task management system that prioritizes security and user access management. Users can register and authenticate securely, while also having the option to deactivate or delete their accounts, adhering to data retention policies. It offers role-based and group-based access management for tasks, ensuring that sensitive information remains protected. It ensures data integrity and user safety. Additionally, it provides seamless support for bulk upload using CSV files, guaranteeing that relationships between users and tasks are accurately preserved.
