@@ -37,7 +37,7 @@ func StartApp() error {
 
 	r.Use(cors.Default())
 	if err := r.SetTrustedProxies(configuration.TrustedProxies); err != nil {
-		panic(err)
+		fmt.Println("❌ Couldn't set trusted proxies")
 	}
 
 	r.GET("/health", controllers.Health)
