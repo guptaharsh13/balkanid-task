@@ -1,9 +1,4 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/YCCXVJKc)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11471296&assignment_repo_type=AssignmentRepo)
-
-# BalkanID Task
-
-Backend Assignment | BalkanID
+# RBAC Authentication Service
 
 ![ERD](erd.png)
 
@@ -35,13 +30,13 @@ A robust containerized task management system that prioritizes security and user
 - Clone the repo.
 
     ```shell
-    git clone https://github.com/BalkanID-University/balkanid-fte-hiring-task-vit-vellore-2023-guptaharsh13
+    git clone https://github.com/guptaharsh13/rback-auth-service
     ```
 
 - Change into the directory.
 
     ```shell
-    cd balkanid-fte-hiring-task-vit-vellore-2023-guptaharsh13
+    cd rback-auth-service
     ```
 
 - **Environment Variables**
@@ -50,7 +45,7 @@ A robust containerized task management system that prioritizes security and user
   touch .env
   ```
 
-  **For running this project successfully you'll need to create a `.env` file and store your PostgreSQL there like [`.env.sample`](https://github.com/BalkanID-University/balkanid-fte-hiring-task-vit-vellore-2023-guptaharsh13/blob/master/.env.sample).**
+  **For running this project successfully you'll need to create a `.env` file and store your PostgreSQL there like [`.env.sample`](https://github.com/guptaharsh13/rback-auth-service/blob/master/.env.sample).**
 
 ## Usage
 
